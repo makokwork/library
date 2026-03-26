@@ -1,4 +1,4 @@
-<h1>Library System2</h1>
+<h1>Library System</h1>
 
 <a href="/library/books">Books</a><br>
 <a href="/library/authors">Authors</a><br>
