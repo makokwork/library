@@ -21,6 +21,8 @@ List<Publisher> publishers = (List<Publisher>) request.getAttribute("publishers"
     <th>ISBN</th>
     <th>Год</th>
     <th>Страниц</th>
+    <th>Автор</th>
+    <th>Издательство</th>
     <th>Действия</th>
 </tr>
 
@@ -33,6 +35,35 @@ for (Book b : books) {
     <td><%= b.getCode() %></td>
     <td><%= b.getYearPublish() %></td>
     <td><%= b.getCountPage() %></td>
+
+    <!-- Автор -->
+    <td>
+    <%
+    String authorName = "";
+    for (Author a : authors) {
+        if (a.getId().equals(b.getAuthorId())) {
+            authorName = a.getLastName() + " " + a.getFirstName();
+            break;
+        }
+    }
+    %>
+    <%= authorName %>
+    </td>
+
+    <!-- Издательство -->
+    <td>
+    <%
+    String publisherName = "";
+    for (Publisher p : publishers) {
+        if (p.getId().equals(b.getPublishId())) {
+            publisherName = p.getNamePublisher();
+            break;
+        }
+    }
+    %>
+    <%= publisherName %>
+    </td>
+
     <td>
         <a class="btn-small blue" href="editbook?id=<%= b.getId() %>">Редактировать</a>
         <a class="btn-small red" href="deletebook?id=<%= b.getId() %>">Удалить</a>

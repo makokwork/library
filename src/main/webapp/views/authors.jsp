@@ -8,7 +8,7 @@ List<Author> authors = (List<Author>) request.getAttribute("authors");
 
 <jsp:include page="header.jsp"/>
 
-<h4>Список авторов</h4>
+<h4>Авторы</h4>
 
 <table class="striped">
 <tr>
@@ -35,5 +35,24 @@ for (Author a : authors) {
 %>
 
 </table>
+
+<hr>
+
+<h5>Добавить автора</h5>
+
+<form method="POST" action="<%= request.getContextPath() %>/author">
+
+    <div class="input-field">
+        <input type="text" name="lastname" required>
+        <label>Фамилия</label>
+    </div>
+
+    <div class="input-field">
+        <input type="text" name="firstname" required>
+        <label>Имя</label>
+    </div>
+
+    <button class="btn green">Добавить</button>
+</form>
 
 <jsp:include page="footer.jsp"/>
